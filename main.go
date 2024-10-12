@@ -64,6 +64,22 @@ func main() {
 				
 				// add_todo(tasks)
 			case "3":
+
+				var tasks string
+				fmt.Print("Please list tasks that you would like to remove in comma separated format: ")
+				tasks, _ = reader.ReadString('\n')
+
+				var removed_tasks = parse_tasks(tasks)
+
+				for idx, val:= range unsaved_tasks {
+					for _, rval:= range removed_tasks {
+						if val == rval {
+							unsaved_tasks = append(unsaved_tasks[:idx], unsaved_tasks[idx+1:]...)
+							fmt.Print("Removed: "+rval+"\n")
+						}
+					}
+				}
+				
 			default:
 				fmt.Print("Invalid input, please try again")
 
