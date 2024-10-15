@@ -8,9 +8,6 @@ import ("fmt"
 		)
 
 
-func add_todo(task []string){
-	
-}
 
 func parse_tasks(tasks_string string) []string{
 
@@ -25,7 +22,7 @@ func parse_tasks(tasks_string string) []string{
 		}
 		buff += string(tasks_string[i])
 	}
-	buff = strings.TrimSpace(buff)
+	buff = strings.Trim(buff, " ")
 	tasks = append(tasks, buff)
 
 	return tasks
@@ -34,6 +31,8 @@ func parse_tasks(tasks_string string) []string{
 
 func main() {
 	// create a todo cli application
+
+
 
 	var unsaved_tasks = []string{}
 	var option string
